@@ -1,41 +1,84 @@
-<!-- Portfolio RTL Belgium -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio d'audit d'entreprise - RTL Belgium">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio dynamique RTL Belgium" />
   <title>Portfolio RTL Belgium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #f9f9f9, #ffffff);
+      color: #222;
+      line-height: 1.8;
       padding: 2rem;
-      background-color: #f9f9f9;
-      color: #333;
-      max-width: 900px;
+      max-width: 960px;
       margin: auto;
+      animation: fadeIn 1s ease-in-out;
     }
     h1, h2 {
       color: #F59300;
     }
     h1 {
-      border-bottom: 2px solid #F59300;
-      padding-bottom: 0.3rem;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      position: relative;
+    }
+    h1::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: #F59300;
+      margin: 0.5rem auto;
+      border-radius: 2px;
     }
     section {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    section:hover {
+      transform: translateY(-5px);
+    }
+    video {
+      display: block;
+      margin: 2rem auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    img.logo {
+      width: 180px;
+      display: block;
+      margin: 1rem auto 2rem;
+    }
+    p, li {
+      font-size: 1.05rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <img src="logoRtl.png" alt="Logo RTL Belgium" style="width: 200px; display: block; margin: 0 auto 2rem;" />
+  <img src="logoRtl.png" alt="Logo RTL Belgium" class="logo" />
   <h1>Portfolio – RTL Belgium</h1>
 
-  <video width="640" height="360" controls style="display: block; margin: 2rem auto;">
-  <source src="video.mp4" type="video/mp4">
-  Votre navigateur ne supporte pas la vidéo.
-</video>
+  <video width="720" height="400" controls>
+    <source src="video.mp4" type="video/mp4" />
+    Votre navigateur ne supporte pas la vidéo.
+  </video>
 
   <section>
     <h2>1. Statuts de l’entreprise</h2>
@@ -73,7 +116,10 @@
 
   <section>
     <h2>8. Segmentation, positionnement, ciblage et différenciation</h2>
-    <p>Segmentation : public francophone belge. Positionnement : média local généraliste. Ciblage : familles, jeunes adultes. Différenciation : production belge, proximité, adaptation numérique.</p>
+    <p>Segmentation : public francophone belge.<br>
+    Positionnement : média local généraliste.<br>
+    Ciblage : familles, jeunes adultes.<br>
+    Différenciation : production belge, proximité, adaptation numérique.</p>
   </section>
 
   <section>
