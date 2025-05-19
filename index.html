@@ -7,61 +7,133 @@
   <title>Portfolio RTL Belgium</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.7;
-      padding: 2rem;
-      background: linear-gradient(to right, #fefefe, #f3f3f3);
-      color: #222;
-      max-width: 960px;
-      margin: auto;
-      animation: fadeIn 1s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    h1 {
-      color: #F59300;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    h2 {
-      color: #F59300;
-      margin-bottom: 0.5rem;
-      border-left: 5px solid #F59300;
-      padding-left: 0.5rem;
-    }
-    section {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    img.logo {
-      width: 180px;
-      display: block;
-      margin: 0 auto 2rem;
-    }
+    :root {
+  --primary: #F59300;
+  --light-bg: #fefefe;
+  --soft-border: rgba(0, 0, 0, 0.05);
+  --text-color: #222;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.75;
+  background: linear-gradient(to right, var(--light-bg), #f3f3f3);
+  color: var(--text-color);
+  padding-left: 240px;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  counter-reset: section;
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: white;
+  border-right: 1px solid #ddd;
+  padding: 2rem 1rem;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+aside h2 {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+aside nav a {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+aside nav a:hover {
+  color: var(--primary);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+section {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px var(--soft-border);
+  padding: 2rem;
+  margin-bottom: 3rem;
+  transition: 0.3s ease;
+  scroll-margin-top: 60px;
+}
+
+section:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+section h2::before {
+  counter-increment: section;
+  content: counter(section) ". ";
+  color: var(--primary);
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  border-left: 5px solid var(--primary);
+  padding-left: 0.5rem;
+}
+
+h3 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #444;
+}
+
+ul {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+p, li {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
   </style>
 </head>
 <body>
+  <aside>
+  <h2>Sommaire</h2>
+  <nav>
+    <a href="#statuts">1. Statuts</a>
+    <a href="#comptes">2. Comptes annuels</a>
+    <a href="#mission">4. Mission, vision, valeurs</a>
+    <a href="#innovation">6. Innovation</a>
+    <a href="#concurrence">7. Concurrence</a>
+    <a href="#segmentation">8. Segmentation & positionnement</a>
+    <a href="#prix">9. Politique de prix</a>
+    <a href="#diagnostic">10. Diagnostic financier</a>
+    <a href="#swot">11. SWOT</a>
+  </nav>
+</aside>
+
   <img src="logoRtl.png" alt="Logo RTL Belgium" class="logo" />
   <h1>Portfolio – RTL Belgium</h1>
 
-<section>
+<section id="statuts" >
   <h2>1. Statuts de l’entreprise</h2>
 
   <p>
@@ -91,7 +163,7 @@
 </section>
 
 
-  <section>
+  <section id="comptes">
     <h2>2. Comptes annuels (BNB)</h2>
     <p>Les comptes annuels déposés par RTL Belgium SA à la Banque Nationale de Belgique (BNB) témoignent d’une situation financière globalement saine et stable. Pour l’exercice 2024, l’entreprise a déclaré un chiffre d’affaires supérieur à 225 millions d’euros, confirmant sa position de leader dans le paysage audiovisuel francophone belge.
 
@@ -102,7 +174,7 @@ L’entreprise emploie environ 447 équivalents temps plein (ETP), ce qui reflè
 Bien que les données détaillées sur les ratios de rentabilité, de solvabilité ou de liquidité ne soient pas publiques dans ce cadre synthétique, les éléments disponibles permettent d’observer une gestion prudente et une bonne maîtrise des équilibres financiers.</p>
   </section>
 
-<section>
+<section id="mission">
   <h2>4. Mission, vision et valeurs</h2>
 
   <h3>Mission</h3>
@@ -128,7 +200,7 @@ Bien que les données détaillées sur les ratios de rentabilité, de solvabilit
 </section>
 
 
-<section>
+<section id="innovation">
   <h2>6. Innovation</h2>
   <p>
     RTL Belgium déploie une <strong>stratégie d’innovation transversale</strong>, qui touche à la fois les produits, les processus, le marketing et l’organisation.
@@ -161,7 +233,7 @@ Bien que les données détaillées sur les ratios de rentabilité, de solvabilit
 </section>
 
 
-<section>
+<section id="concurrence">
   <h2>7. Concurrence – Analyse selon les 5 forces de Porter</h2>
 
   <p>
@@ -213,7 +285,7 @@ Bien que les données détaillées sur les ratios de rentabilité, de solvabilit
 </section>
 
 
-<section>
+<section id="segmentation">
   <h2>8. Segmentation, ciblage, positionnement et différenciation</h2>
 
   <h3>Segmentation</h3>
@@ -247,7 +319,7 @@ Bien que les données détaillées sur les ratios de rentabilité, de solvabilit
   </ul>
 </section>
 
-<section>
+<section id="prix">
   <h2>9. Politique de prix</h2>
 
   <p>
@@ -280,7 +352,7 @@ Bien que les données détaillées sur les ratios de rentabilité, de solvabilit
 </section>
 
 
-<section>
+<section id="diagnostic">
   <h2>10. Diagnostic financier</h2>
 
   <p>
@@ -323,7 +395,7 @@ Bien que les données détaillées sur les ratios de rentabilité, de solvabilit
   </p>
 </section>
 
-<section>
+<section id="swot">
   <h2>11. Analyse SWOT</h2>
 
   <h3>Forces</h3>
