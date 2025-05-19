@@ -500,6 +500,11 @@
   <p style="text-align:center;">
     <img src="business_canvas.png" alt="Business Model Canvas RTL Belgium" class="bmc-img" onclick="openLightbox(this)">
   </p>
+    <!-- Lightbox -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img src="" alt="Agrandissement Business Model Canvas">
+</div>
+
 </section>
   <script>
     // Animation au scroll
@@ -525,6 +530,19 @@
     Réalisé par Dilan Uludag – HE2B ISIB © 2025
   </footer>
   
+<script>
+  function openLightbox(img) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    lightboxImg.src = img.src;
+    lightbox.style.display = 'flex';
+  }
+
+  function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.style.display = 'none';
+  }
+</script>
 
 </body>
 </html>
