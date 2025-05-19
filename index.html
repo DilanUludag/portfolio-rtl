@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio dynamique RTL Belgium" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio d'audit d'entreprise - RTL Belgium">
   <title>Portfolio RTL Belgium</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,60 +14,52 @@
     }
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #f9f9f9, #ffffff);
-      color: #222;
-      line-height: 1.8;
+      line-height: 1.7;
       padding: 2rem;
+      background: linear-gradient(to right, #fefefe, #f3f3f3);
+      color: #222;
       max-width: 960px;
       margin: auto;
       animation: fadeIn 1s ease-in-out;
     }
-    h1, h2 {
-      color: #F59300;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     h1 {
+      color: #F59300;
       font-size: 2.5rem;
       margin-bottom: 1rem;
       text-align: center;
-      position: relative;
     }
-    h1::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 4px;
-      background-color: #F59300;
-      margin: 0.5rem auto;
-      border-radius: 2px;
+    h2 {
+      color: #F59300;
+      margin-bottom: 0.5rem;
+      border-left: 5px solid #F59300;
+      padding-left: 0.5rem;
     }
     section {
-      margin-bottom: 2.5rem;
-      background: #fff;
-      padding: 1.5rem;
+      background: white;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     section:hover {
       transform: translateY(-5px);
-    }
-    video {
-      display: block;
-      margin: 2rem auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
     img.logo {
       width: 180px;
       display: block;
-      margin: 1rem auto 2rem;
+      margin: 0 auto 2rem;
     }
-    p, li {
-      font-size: 1.05rem;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    video {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
     }
   </style>
 </head>
@@ -75,69 +67,59 @@
   <img src="logoRtl.png" alt="Logo RTL Belgium" class="logo" />
   <h1>Portfolio – RTL Belgium</h1>
 
-  <video width="720" height="400" controls>
-    <source src="video.mp4" type="video/mp4" />
-    Votre navigateur ne supporte pas la vidéo.
+  <video controls>
+    <source src="video.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la lecture de vidéo.
   </video>
 
   <section>
     <h2>1. Statuts de l’entreprise</h2>
-    <p>Dénomination légale : RTL Belgium SA<br>
-    Numéro d’entreprise : BE 0428.201.847<br>
-    Date de création : 4 décembre 1985<br>
-    Siège social : Avenue Jacques Georgin 2, 1030 Schaerbeek<br>
-    Forme juridique : Société anonyme<br>
-    Actionnaires actuels : DPG Media (50 %) et Groupe Rossel (50 %)</p>
+    <p>RTL Belgium SA est une société anonyme de droit belge, fondée le 4 décembre 1985. Elle est immatriculée sous le numéro BE 0428.201.847 et son siège social est situé Avenue Jacques Georgin 2, 1030 Schaerbeek. Elle est actuellement détenue à parts égales par DPG Media et le Groupe Rossel, deux poids lourds du paysage médiatique belge.</p>
   </section>
 
   <section>
-    <h2>2. Comptes annuels (format BNB)</h2>
-    <p>Dernier dépôt : 22 mai 2024<br>
-    Chiffre d’affaires : 225 063 616 €<br>
-    Effectif : 447,3 équivalents temps plein</p>
+    <h2>2. Comptes annuels (BNB)</h2>
+    <p>Au 22 mai 2024, RTL Belgium a déclaré un chiffre d’affaires de 225 063 616 € avec un effectif moyen de 447,3 ETP. Ces résultats traduisent une stabilité financière et une capacité à maintenir un haut niveau d’activité dans un contexte concurrentiel fort, tout en optimisant les ressources humaines et technologiques.</p>
   </section>
 
   <section>
     <h2>4. Mission, vision et valeurs</h2>
-    <p><strong>Mission :</strong> Fournir un contenu audiovisuel de qualité répondant aux attentes du public francophone belge.<br>
-    <strong>Vision :</strong> Être le leader des médias francophones en Belgique.<br>
-    <strong>Valeurs :</strong> Proximité, innovation, responsabilité sociale, excellence éditoriale, diversité.</p>
+    <p><strong>Mission :</strong> Produire et diffuser des contenus audiovisuels engageants, informatifs et divertissants, accessibles à tous les publics francophones en Belgique.<br>
+    <strong>Vision :</strong> Être le média de référence en Belgique francophone, capable d’anticiper les évolutions du secteur et de rester à la pointe de l’innovation.<br>
+    <strong>Valeurs :</strong> Créativité, responsabilité sociétale, diversité culturelle, rigueur journalistique et proximité avec les publics.</p>
   </section>
 
   <section>
-    <h2>6. Positionnement en matière d’innovation</h2>
-    <p>Plateforme RTLplay, chaîne RTL District, collaboration Rossel, production numérique, contenus originaux.</p>
+    <h2>6. Innovation</h2>
+    <p>RTL Belgium se distingue par sa capacité à innover dans un paysage audiovisuel en mutation : plateforme RTLplay, développement de formats numériques natifs, personnalisation des recommandations via l’exploitation de la data, déploiement de studios modernes et mise en œuvre de solutions hybrides TV/digital.</p>
   </section>
 
   <section>
-    <h2>7. Analyse de la concurrence</h2>
-    <p>RTBF : service public, TF1 Belgique : chaîne étrangère, Netflix et YouTube : plateformes globales.</p>
+    <h2>7. Concurrence</h2>
+    <p>RTL Belgium évolue dans un écosystème fortement concurrentiel : médias publics comme la RTBF, chaînes étrangères comme TF1 Belgique, et plateformes internationales comme Netflix ou YouTube. Sa force réside dans l’ancrage local, la production de contenu belge et sa capacité à combiner diffusion linéaire et numérique.</p>
   </section>
 
   <section>
-    <h2>8. Segmentation, positionnement, ciblage et différenciation</h2>
-    <p>Segmentation : public francophone belge.<br>
-    Positionnement : média local généraliste.<br>
-    Ciblage : familles, jeunes adultes.<br>
-    Différenciation : production belge, proximité, adaptation numérique.</p>
+    <h2>8. Segmentation, positionnement, ciblage, différenciation</h2>
+    <p>RTL Belgium cible le public francophone belge dans toute sa diversité. Son positionnement repose sur une offre généraliste, locale et accessible. Elle se différencie par une production interne qualitative, des figures médiatiques fortes et une stratégie éditoriale adaptée aux usages contemporains (TV, web, mobile).</p>
   </section>
 
   <section>
     <h2>9. Politique de prix</h2>
-    <p>Tarification publicitaire basée sur l’audience. Modèle CPM/CPC en digital. Personnalisation des campagnes.</p>
+    <p>La politique tarifaire repose sur une logique de valorisation de l’audience et du contenu. Sur le digital, les modèles CPM et CPC permettent un ciblage affiné. En télévision, les espaces publicitaires sont valorisés selon des grilles horaires, des performances d’audience et des offres couplées multi-supports.</p>
   </section>
 
   <section>
     <h2>10. Diagnostic financier</h2>
-    <p>Résultat net élevé. Bonne rentabilité. Stratégie de fusion réussie. Rentabilité soutenue.</p>
+    <p>RTL Belgium présente une situation financière stable et saine, renforcée par des choix stratégiques tels que le recentrage sur des activités à forte valeur ajoutée et l’optimisation des structures. Les investissements dans les technologies et les talents assurent sa compétitivité sur le long terme.</p>
   </section>
 
   <section>
     <h2>11. SWOT</h2>
-    <p><strong>Forces :</strong> marque forte, diffusion multiple, partenariats.<br>
-    <strong>Faiblesses :</strong> dépendance à la pub, concurrence numérique.<br>
-    <strong>Opportunités :</strong> streaming, contenu original.<br>
-    <strong>Menaces :</strong> nouvelles habitudes médias, régulation.</p>
+    <p><strong>Forces :</strong> Notoriété de la marque, expertise média, production locale intégrée, multi-supports.<br>
+    <strong>Faiblesses :</strong> Dépendance à la publicité, exposition à la volatilité du marché publicitaire.<br>
+    <strong>Opportunités :</strong> Croissance du digital, partenariats stratégiques, diversification des formats.<br>
+    <strong>Menaces :</strong> Concurrence des GAFAM, changements réglementaires, fragmentation de l’audience.</p>
   </section>
 </body>
 </html>
