@@ -88,12 +88,18 @@ section:hover {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
+body {
+  counter-reset: section;
+}
+
 section h2::before {
   counter-increment: section;
   content: counter(section) ". ";
+  margin-right: 0.4rem;
   color: var(--primary);
   font-weight: bold;
 }
+
 
 h2 {
   font-size: 1.5rem;
@@ -124,17 +130,18 @@ p, li {
 <body>
   <aside>
   <h2>Sommaire</h2>
-  <nav>
-    <a href="#statuts">1. Statuts</a>
-    <a href="#comptes">2. Comptes annuels</a>
-    <a href="#mission">4. Mission, vision, valeurs</a>
-    <a href="#innovation">6. Innovation</a>
-    <a href="#concurrence">7. Concurrence</a>
-    <a href="#segmentation">8. Segmentation & positionnement</a>
-    <a href="#prix">9. Politique de prix</a>
-    <a href="#diagnostic">10. Diagnostic financier</a>
-    <a href="#swot">11. SWOT</a>
-  </nav>
+<nav>
+  <a href="#statuts">1. Statuts</a>
+  <a href="#comptes">2. Comptes annuels</a>
+  <a href="#mission">3. Mission, vision, valeurs</a>
+  <a href="#innovation">4. Innovation</a>
+  <a href="#concurrence">5. Concurrence</a>
+  <a href="#segmentation">6. Segmentation & positionnement</a>
+  <a href="#prix">7. Politique de prix</a>
+  <a href="#diagnostic">8. Diagnostic financier</a>
+  <a href="#swot">9. SWOT</a>
+</nav>
+
 </aside>
 
   <img src="logoRtl.png" alt="Logo RTL Belgium" class="logo" />
