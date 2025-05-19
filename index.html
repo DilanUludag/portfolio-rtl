@@ -8,440 +8,486 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-  --primary: #F59300;
-  --light-bg: #fefefe;
-  --soft-border: rgba(0, 0, 0, 0.05);
-  --text-color: #222;
-}
+      --primary: #F59300;
+      --text: #222;
+      --bg: #111;
+      --glass: rgba(255,255,255,0.07);
+    }
 
-    .logo {
-  width: 180px;
-  display: block;
-  margin: 0 auto 2rem;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: relative;
+      background: black;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    header video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      z-index: 1;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      z-index: 1;
+      margin-top: 1rem;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: var(--glass);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        padding: 0.75rem 2rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      }
+      
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        list-style: none;
+        gap: 1.5rem;
+      }
+      
+      nav li {
+        margin: 0;
+      }
+      
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.4rem 0.6rem;
+        transition: color 0.3s ease, border-bottom 0.3s ease;
+        border-bottom: 2px solid transparent;
+      }
+      
+      nav a:hover {
+        color: var(--primary);
+        border-bottom: 2px solid var(--primary);
+      }
+      
 
 
-body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.75;
-  background: linear-gradient(to right, var(--light-bg), #f3f3f3);
-  color: var(--text-color);
-  padding-left: 240px;
-  padding-right: 2rem;
-  padding-top: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  counter-reset: section;
-}
+    section {
+      padding: 5rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      position: relative;
+    }
 
-aside {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 220px;
-  height: 100vh;
-  background-color: white;
-  border-right: 1px solid #ddd;
-  padding: 2rem 1rem;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
-}
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      border-left: 5px solid var(--primary);
+      padding-left: 0.75rem;
+    }
 
-aside h2 {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
+    p, li {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
 
-aside nav a {
-  display: block;
-  margin-bottom: 0.75rem;
-  color: #333;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
+    .pulse {
+      animation: pulse 2s infinite;
+    }
 
-aside nav a:hover {
-  color: var(--primary);
-}
+    section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      
+      section.reveal {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
 
-h1 {
-  text-align: center;
-  font-size: 2.5rem;
-  color: var(--primary);
-  margin-bottom: 2rem;
-}
-
-section {
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px var(--soft-border);
-  padding: 2rem;
-  margin-bottom: 3rem;
-  transition: 0.3s ease;
-  scroll-margin-top: 60px;
-}
-
-section:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-body {
-  counter-reset: section;
-}
-
-section h2::before {
-  counter-increment: section;
-  content: counter(section) ". ";
-  margin-right: 0.4rem;
-  color: var(--primary);
-  font-weight: bold;
-}
-
-
-h2 {
-  font-size: 1.5rem;
-  color: var(--primary);
-  margin-bottom: 1rem;
-  border-left: 5px solid var(--primary);
-  padding-left: 0.5rem;
-}
-
-h3 {
-  margin-top: 1.5rem;
-  font-size: 1.2rem;
-  color: #444;
-}
-
-ul {
-  padding-left: 1.5rem;
-  margin-top: 0.5rem;
-}
-
-p, li {
-  font-size: 1rem;
-  margin-bottom: 0.8rem;
-}
-
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.03); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
   </style>
 </head>
 <body>
-  <aside>
-  <h2>Sommaire</h2>
-<nav>
-  <a href="#statuts">1. Statuts</a>
-  <a href="#comptes">2. Comptes annuels</a>
-  <a href="#mission">3. Mission, vision, valeurs</a>
-  <a href="#innovation">4. Innovation</a>
-  <a href="#concurrence">5. Concurrence</a>
-  <a href="#segmentation">6. Segmentation & positionnement</a>
-  <a href="#prix">7. Politique de prix</a>
-  <a href="#diagnostic">8. Diagnostic financier</a>
-  <a href="#swot">9. SWOT</a>
-</nav>
+    <nav>
+        <ul>
+          <li><a href="#intro">Accueil</a></li>
+          <li><a href="#statuts">Statuts</a></li>
+          <li><a href="#comptes">Comptes</a></li>
+          <li><a href="#mission">Vision</a></li>
+          <li><a href="#innovation">Innovation</a></li>
+          <li><a href="#concurrence">Concurrence</a></li>
+          <li><a href="#segmentation">Ciblage</a></li>
+          <li><a href="#prix">Prix</a></li>
+          <li><a href="#diagnostic">Finances</a></li>
+          <li><a href="#swot">SWOT</a></li>
+        </ul>
+      </nav>
+      
+      
 
-</aside>
+  <header id="intro">
+    <video src="https://cdn.pixabay.com/vimeo/583155724/rtl-motion-93714.mp4?width=640&hash=46a3e0431609e4143aa5c6e6c0abbeaece6bce71" autoplay muted loop></video>
+    <h1 class="pulse">Portfolio RTL Belgium</h1>
+    <p>Un univers audiovisuel au service de la stratégie</p>
+  </header>
 
-  <img src="logoRtl.png" alt="Logo RTL Belgium" class="logo" />
-  <h1>Portfolio – RTL Belgium</h1>
-
-<section id="statuts" >
-  <h2>Statuts de l’entreprise</h2>
-
-  <p>
-    RTL Belgium SA est une société anonyme de droit belge, constituée en 1985 et enregistrée sous le numéro d’entreprise
-    <strong>BE 0428.201.847</strong>. Son siège social est établi à <strong>Avenue Jacques Georgin 2, 1030 Bruxelles</strong>.
-    En tant que société anonyme, elle dispose d’une personnalité juridique propre et son capital est divisé en actions,
-    ce qui permet une certaine flexibilité en matière d’actionnariat.
-  </p>
-
-  <p>
-    Depuis le rachat en 2022, RTL Belgium est détenue à parts égales (50/50) par deux groupes de presse majeurs :
-    <strong>DPG Media</strong>, acteur flamand de premier plan, et <strong>Rossel</strong>, éditeur du journal <em>Le Soir</em>
-    et acteur francophone majeur. Cette structure capitalistique reflète une volonté de consolidation du paysage médiatique belge.
-  </p>
-
-  <p>
-    RTL Belgium exerce ses activités dans le secteur <strong>audiovisuel privé</strong>, notamment à travers des chaînes de télévision
-    (<em>RTL-TVI, Club RTL, Plug RTL</em>) et des stations de radio (<em>Bel RTL, Radio Contact</em>).
-    L’entreprise emploie environ <strong>447 équivalents temps plein (ETP)</strong>,
-    ce qui reflète une structure de taille significative, mobilisant des compétences variées dans les domaines du journalisme,
-    de la production, de la technique et du digital.
-  </p>
-
-  <p>
-    Elle opère dans le respect du <strong>Code des sociétés et associations (CSA)</strong> ainsi que des réglementations spécifiques au secteur des médias en Belgique.
-  </p>
-</section>
-
-
-  <section id="comptes">
-    <h2>Comptes annuels (BNB)</h2>
-    <p>Les comptes annuels déposés par RTL Belgium SA à la Banque Nationale de Belgique (BNB) témoignent d’une situation financière globalement saine et stable. Pour l’exercice 2024, l’entreprise a déclaré un chiffre d’affaires supérieur à 225 millions d’euros, confirmant sa position de leader dans le paysage audiovisuel francophone belge.
-
-La société affiche une structure de coûts bien maîtrisée, ce qui lui permet de préserver une rentabilité malgré un environnement concurrentiel en forte mutation (essor du streaming, évolution des usages médias, pression sur les revenus publicitaires). Le résultat d’exploitation reste positif, traduisant une capacité à générer des marges opérationnelles.
-
-L’entreprise emploie environ 447 équivalents temps plein (ETP), ce qui reflète une activité de grande envergure avec une composante humaine significative. Ce volume de personnel témoigne également de la diversité des métiers présents au sein de l’organisation (production, journalisme, technique, marketing, digital...).
-
-Bien que les données détaillées sur les ratios de rentabilité, de solvabilité ou de liquidité ne soient pas publiques dans ce cadre synthétique, les éléments disponibles permettent d’observer une gestion prudente et une bonne maîtrise des équilibres financiers.</p>
+  <section id="statuts" >
+    <h2>Statuts de l’entreprise</h2>
+  
+    <p>
+      RTL Belgium SA est une société anonyme de droit belge, constituée en 1985 et enregistrée sous le numéro d’entreprise
+      <strong>BE 0428.201.847</strong>. Son siège social est établi à <strong>Avenue Jacques Georgin 2, 1030 Bruxelles</strong>.
+      En tant que société anonyme, elle dispose d’une personnalité juridique propre et son capital est divisé en actions,
+      ce qui permet une certaine flexibilité en matière d’actionnariat.
+    </p>
+  
+    <p>
+      Depuis le rachat en 2022, RTL Belgium est détenue à parts égales (50/50) par deux groupes de presse majeurs :
+      <strong>DPG Media</strong>, acteur flamand de premier plan, et <strong>Rossel</strong>, éditeur du journal <em>Le Soir</em>
+      et acteur francophone majeur. Cette structure capitalistique reflète une volonté de consolidation du paysage médiatique belge.
+    </p>
+  
+    <p>
+      RTL Belgium exerce ses activités dans le secteur <strong>audiovisuel privé</strong>, notamment à travers des chaînes de télévision
+      (<em>RTL-TVI, Club RTL, Plug RTL</em>) et des stations de radio (<em>Bel RTL, Radio Contact</em>).
+      L’entreprise emploie environ <strong>447 équivalents temps plein (ETP)</strong>,
+      ce qui reflète une structure de taille significative, mobilisant des compétences variées dans les domaines du journalisme,
+      de la production, de la technique et du digital.
+    </p>
+  
+    <p>
+      Elle opère dans le respect du <strong>Code des sociétés et associations (CSA)</strong> ainsi que des réglementations spécifiques au secteur des médias en Belgique.
+    </p>
   </section>
-
-<section id="mission">
-  <h2>Mission, vision et valeurs</h2>
-
-  <h3>Mission</h3>
-  <p>
-    RTL Belgium a pour mission de produire et diffuser des contenus médiatiques francophones de qualité, qui informent, divertissent et reflètent les réalités de la société belge.
-    À travers ses chaînes de télévision, radios et plateformes digitales, l’entreprise s’engage à répondre aux attentes d’un public large et diversifié, tout en respectant les principes fondamentaux du journalisme.
-  </p>
-
-  <h3>Vision</h3>
-  <p>
-    D’ici cinq ans, RTL Belgium ambitionne de devenir le premier choix audiovisuel en Belgique francophone, en consolidant sa présence sur l’ensemble des canaux (TV, radio, digital)
-    et en proposant une expérience média personnalisée, interactive et accessible sur tous les supports.
-  </p>
-
-  <h3>Valeurs</h3>
-  <ul>
-    <li><strong>Intégrité journalistique :</strong> garantir une information fiable, vérifiée et indépendante.</li>
-    <li><strong>Proximité avec le public :</strong> rester à l’écoute des attentes de la population belge francophone.</li>
-    <li><strong>Excellence technologique :</strong> investir dans des outils modernes pour assurer une diffusion de qualité.</li>
-    <li><strong>Responsabilité sociale :</strong> promouvoir la diversité, l’inclusion et des pratiques durables.</li>
-    <li><strong>Innovation continue :</strong> anticiper les évolutions du secteur et développer de nouveaux formats.</li>
-  </ul>
-</section>
-
-
-<section id="innovation">
-  <h2>Innovation</h2>
-  <p>
-    RTL Belgium déploie une <strong>stratégie d’innovation transversale</strong>, qui touche à la fois les produits, les processus, le marketing et l’organisation.
-    Cette approche s’inscrit dans une volonté d’<strong>adaptation continue</strong> aux mutations technologiques et aux attentes du public belge francophone.
-  </p>
-
-  <ul>
-    <li>
-      <strong>Innovation de produit :</strong> le lancement de <em>RTLplay</em>, plateforme de streaming en ligne, marque un virage stratégique vers la consommation à la demande,
-      avec une interface moderne, une accessibilité multi-écrans et des contenus exclusifs.
-    </li>
-    <li>
-      <strong>Innovation de marketing :</strong> l’entreprise intègre l’<em>intelligence artificielle</em> pour proposer des contenus personnalisés,
-      améliorer les recommandations utilisateurs et renforcer l’engagement sur ses plateformes digitales.
-    </li>
-    <li>
-      <strong>Innovation de procédé :</strong> RTL Belgium a adopté des <em>technologies cloud</em> pour la diffusion de ses contenus,
-      assurant ainsi une plus grande flexibilité, une meilleure résilience technique et une capacité d’adaptation rapide aux pics d’audience.
-    </li>
-    <li>
-      <strong>Innovation organisationnelle :</strong> l’organisation interne a évolué vers une logique <em>agile</em>,
-      favorisant la collaboration interdisciplinaire, la réactivité et l’autonomie des équipes face aux évolutions rapides du marché.
-    </li>
-  </ul>
-
-  <p>
-    Ces différentes formes d’innovation s’alignent sur les critères définis par l’<strong>Union européenne</strong> en matière de capacité d’innovation,
-    et positionnent RTL Belgium comme un acteur dynamique au sein de l’écosystème audiovisuel.
-  </p>
-</section>
-
-
-<section id="concurrence">
-  <h2>Concurrence – Analyse selon les 5 forces de Porter</h2>
-
-  <p>
-    RTL Belgium évolue dans un environnement concurrentiel complexe et en mutation rapide.
-    Une analyse selon le modèle des <strong>cinq forces de Porter</strong> permet de mieux comprendre les défis stratégiques auxquels l’entreprise est confrontée :
-  </p>
-
-  <ol>
-    <li>
-      <strong>Rivalité entre les concurrents existants :</strong><br>
-      La rivalité sectorielle est particulièrement intense. RTL Belgium doit faire face à la <em>RTBF</em>, service public fortement subventionné,
-      et à <em>TF1</em>, chaîne française bien implantée en Belgique. Ces acteurs se disputent les parts d’audience et les investissements publicitaires,
-      rendant le marché très compétitif.
-    </li>
-
-    <li>
-      <strong>Pouvoir de négociation des clients (annonceurs) :</strong><br>
-      Les <em>annonceurs disposent d’un pouvoir de négociation élevé</em>, notamment les grandes agences médias,
-      qui peuvent comparer les offres entre chaînes et plateformes. La pression sur les tarifs publicitaires incite RTL Belgium à innover dans ses formats
-      et à offrir des solutions publicitaires personnalisées (data-driven, ciblage, etc.).
-    </li>
-
-    <li>
-      <strong>Menace des produits de substitution :</strong><br>
-      La montée en puissance des plateformes <em>Netflix, YouTube, TikTok ou Spotify</em> constitue une menace majeure.
-      Ces services offrent des contenus à la demande, souvent sans publicité, captant l’attention et les budgets du public cible, notamment chez les jeunes.
-    </li>
-
-    <li>
-      <strong>Menace de nouveaux entrants :</strong><br>
-      Le <em>seuil d’entrée technologique a fortement baissé</em>, permettant l’émergence d’acteurs alternatifs comme les
-      <em>influenceurs, les chaînes YouTube, les podcasts ou les médias 100 % digitaux</em>.
-      Ces nouveaux entrants fragmentent l’audience et imposent de nouveaux codes de production.
-    </li>
-
-    <li>
-      <strong>Pouvoir de négociation des fournisseurs :</strong><br>
-      Dans le secteur audiovisuel, ce pouvoir est modéré mais réel : il peut concerner les <em>fournisseurs de contenus</em> (maisons de production)
-      ou de <em>technologies</em> (solutions cloud, diffusion, analytics). RTL Belgium limite cette dépendance en intégrant une partie de la production
-      et en diversifiant ses partenariats technologiques.
-    </li>
-  </ol>
-
-  <p>
-    <strong>Conclusion :</strong> malgré une forte pression concurrentielle, RTL Belgium bénéficie d’un
-    <strong>positionnement avantageux</strong>, combinant une <em>présence historique en télévision</em>,
-    une <em>forte audience digitale via RTLplay</em>, et un <em>ancrage local</em> qui renforce sa légitimité auprès du public et des annonceurs.
-  </p>
-</section>
-
-
-<section id="segmentation">
-  <h2>Segmentation, ciblage, positionnement et différenciation</h2>
-
-  <h3>Segmentation</h3>
-  <p>
-    RTL Belgium segmente son audience principalement selon deux axes :
-  </p>
-  <ul>
-    <li><strong>Démographique</strong> : en s’adressant à la fois aux <em>jeunes adultes</em>, aux <em>familles</em> et aux <em>actifs</em>, avec des offres adaptées à chaque tranche d’âge.</li>
-    <li><strong>Comportemental</strong> : en tenant compte des <em>habitudes de consommation médiatique</em> : télévision linéaire traditionnelle, plateformes de streaming (RTLplay), radio ou contenus mobiles.</li>
-  </ul>
-
-  <h3>Ciblage</h3>
-  <p>
-    L’entreprise cible prioritairement les <strong>consommateurs francophones belges actifs sur le digital</strong>, à la recherche de contenus à la fois accessibles, fiables et proches de leur quotidien.
-    Ce public est friand d’actualités, de divertissement local et de formats courts, ce qui justifie l’accent mis sur les plateformes numériques.
-  </p>
-
-  <h3>Positionnement</h3>
-  <p>
-    RTL Belgium se positionne comme un <strong>média généraliste, fiable et ancré localement</strong>, combinant le professionnalisme journalistique à une offre diversifiée de divertissement.
-    Elle entend être perçue comme une marque de confiance, accessible sur tous les supports, et capable d’accompagner les évolutions des usages médias.
-  </p>
-
-  <h3>Différenciation</h3>
-  <p>La stratégie de différenciation repose sur plusieurs leviers clés :</p>
-  <ul>
-    <li><strong>Contenus produits localement</strong>, ancrés dans la réalité belge francophone.</li>
-    <li><strong>Animateurs et journalistes reconnus</strong>, qui incarnent la proximité avec le public.</li>
-    <li><strong>Intégration multisupport</strong> fluide (TV, radio, web, application mobile), assurant une continuité de l’expérience utilisateur.</li>
-    <li><strong>Innovation technologique</strong> soutenue (recommandations personnalisées, formats interactifs, analyse des données d’audience).</li>
-  </ul>
-</section>
-
-<section id="prix">
-  <h2>Politique de prix</h2>
-
-  <p>
-    Le <strong>modèle économique de RTL Belgium</strong> repose principalement sur une <strong>stratégie publicitaire multicanal</strong>,
-    combinant les revenus issus de la <em>télévision linéaire</em> et ceux des <em>plateformes digitales</em>.
-    À cela s’ajoutent des <strong>partenariats commerciaux</strong> ponctuels (sponsoring, co-productions, contenus de marque).
-  </p>
-
-  <p>
-    Les tarifs publicitaires sont établis selon des <strong>modèles de tarification reconnus dans le secteur</strong> :
-  </p>
-  <ul>
-    <li>En télévision, les prix sont indexés sur l’<strong>audience mesurée</strong> (GRP, coût pour mille - <abbr title="Cost Per Mille">CPM</abbr>).</li>
-    <li>En digital, les campagnes peuvent être facturées au <strong>CPM (coût pour mille impressions)</strong> ou au <strong>CPC (coût par clic)</strong>, selon les objectifs des annonceurs (visibilité, engagement, conversion).</li>
-  </ul>
-
-  <p>
-    RTL Belgium propose une <strong>offre modulable et différenciée</strong>, adaptée aux besoins variés des annonceurs :
-  </p>
-  <ul>
-    <li><strong>Formats classiques</strong> : spots TV, bannières, pre-rolls</li>
-    <li><strong>Formats natifs</strong> : native ads, contenus sponsorisés intégrés dans les flux</li>
-    <li><strong>Opérations spéciales</strong> : partenariats événementiels, placement de produit, sponsoring d’émissions</li>
-  </ul>
-
-  <p>
-    Cette <strong>souplesse tarifaire et formatique</strong> permet à RTL Belgium de toucher aussi bien les grandes marques que les annonceurs locaux,
-    tout en optimisant ses revenus publicitaires selon les canaux et les audiences ciblées.
-  </p>
-</section>
-
-
-<section id="diagnostic">
-  <h2>Diagnostic financier</h2>
-
-  <p>
-    RTL Belgium présente une <strong>situation financière globalement saine</strong>, fondée sur des revenus solides,
-    une gestion maîtrisée des charges et une capacité d’adaptation aux mutations du marché.
-  </p>
-
-  <ul>
-    <li>
-      <strong>Rentabilité :</strong><br>
-      Le chiffre d’affaires déclaré en 2024 dépasse les <strong>225 millions d’euros</strong>, ce qui reflète une performance commerciale stable.
-      Malgré un environnement médiatique concurrentiel, l’entreprise parvient à dégager une <em>marge opérationnelle positive</em>,
-      notamment grâce à l’optimisation de ses revenus publicitaires et à la diversification de ses supports (TV, radio, digital).
-    </li>
-
-    <li>
-      <strong>Structure de coûts :</strong><br>
-      RTL Belgium gère une structure de coûts équilibrée, avec un effectif d’environ <strong>447 ETP</strong>.
-      La maîtrise des charges fixes (infrastructures, personnel) et l’optimisation des dépenses technologiques (cloud, automatisation)
-      contribuent à maintenir un bon niveau de compétitivité.
-    </li>
-
-    <li>
-      <strong>Solvabilité et endettement :</strong><br>
-      L’entreprise bénéficie d’un <strong>soutien actionnarial solide</strong> (DPG Media et Rossel), ce qui limite son exposition à l’endettement externe.
-      Aucune difficulté de trésorerie notable n’est observée, ce qui laisse supposer une <em>solvabilité correcte</em> et une capacité à faire face à ses engagements à court terme.
-    </li>
-
-    <li>
-      <strong>Capacité d’investissement :</strong><br>
-      RTL Belgium continue d’investir dans les <em>technologies numériques</em>, l’<em>innovation éditoriale</em> et les <em>infrastructures de diffusion</em>,
-      tout en maintenant une rigueur budgétaire. Ces choix montrent une volonté de se projeter durablement dans un marché en pleine transformation.
-    </li>
-  </ul>
-
-  <p>
-    <strong>Conclusion :</strong> RTL Belgium affiche une <strong>bonne santé financière</strong>,
-    marquée par un équilibre entre performance économique, rigueur de gestion et investissements stratégiques.
-    Cela lui permet de conserver sa place de leader tout en s’adaptant aux défis du numérique.
-  </p>
-</section>
-
-<section id="swot">
-  <h2>Analyse SWOT</h2>
-
-  <h3>Forces</h3>
-  <p>
-    RTL Belgium bénéficie de plusieurs atouts majeurs. Sa <strong>marque historique et bien implantée</strong> en Belgique francophone lui confère une forte notoriété et une légitimité auprès du public.
-    Elle dispose d’un <strong>écosystème multiplateforme performant</strong> (TV, radio, digital), lui permettant de toucher un large éventail de consommateurs.
-    La <strong>production locale de contenus</strong>, adaptée aux réalités culturelles belges, renforce sa proximité avec l’audience.
-    Enfin, sa capacité d’<strong>innovation continue</strong> (technologies, formats, IA) lui permet de rester compétitive dans un marché en mutation.
-  </p>
-
-  <h3>Faiblesses</h3>
-  <p>
-    L’un des points de fragilité de RTL Belgium réside dans sa <strong>dépendance aux revenus publicitaires</strong>,
-    exposés aux cycles économiques et à la pression tarifaire. De plus, l’entreprise doit faire face au <strong>vieillissement de son audience traditionnelle</strong>,
-    notamment sur les canaux TV linéaires, ce qui complique le renouvellement de sa base d’audience.
-  </p>
-
-  <h3>Opportunités</h3>
-  <p>
-    Le développement du <strong>streaming vidéo à la demande</strong> représente un levier de croissance important, notamment via la plateforme RTLplay.
-    La <strong>valorisation des données d’audience</strong> (via le ciblage publicitaire ou la personnalisation des contenus) ouvre de nouvelles perspectives de monétisation.
-    Par ailleurs, la possibilité de nouer des <strong>alliances stratégiques</strong> avec d’autres groupes médias ou acteurs technologiques pourrait renforcer sa position sur le marché.
-  </p>
-
-  <h3>Menaces</h3>
-  <p>
-    RTL Belgium doit faire face à la concurrence croissante des <strong>plateformes mondiales</strong> telles que Netflix, YouTube ou TikTok,
-    qui captent une part croissante de l’attention et des revenus publicitaires.
-    L’<strong>évolution rapide des technologies numériques</strong> exige des investissements constants.
-    Enfin, la <strong>fragmentation des publics</strong>, avec des usages de plus en plus éclatés selon les générations et les supports, rend la fidélisation plus complexe.
-  </p>
-</section>
+  
+  
+    <section id="comptes">
+      <h2>Comptes annuels (BNB)</h2>
+      <p>Les comptes annuels déposés par RTL Belgium SA à la Banque Nationale de Belgique (BNB) témoignent d’une situation financière globalement saine et stable. Pour l’exercice 2024, l’entreprise a déclaré un chiffre d’affaires supérieur à 225 millions d’euros, confirmant sa position de leader dans le paysage audiovisuel francophone belge.
+  
+  La société affiche une structure de coûts bien maîtrisée, ce qui lui permet de préserver une rentabilité malgré un environnement concurrentiel en forte mutation (essor du streaming, évolution des usages médias, pression sur les revenus publicitaires). Le résultat d’exploitation reste positif, traduisant une capacité à générer des marges opérationnelles.
+  
+  L’entreprise emploie environ 447 équivalents temps plein (ETP), ce qui reflète une activité de grande envergure avec une composante humaine significative. Ce volume de personnel témoigne également de la diversité des métiers présents au sein de l’organisation (production, journalisme, technique, marketing, digital...).
+  
+  Bien que les données détaillées sur les ratios de rentabilité, de solvabilité ou de liquidité ne soient pas publiques dans ce cadre synthétique, les éléments disponibles permettent d’observer une gestion prudente et une bonne maîtrise des équilibres financiers.</p>
+    </section>
+  
+  <section id="mission">
+    <h2>Mission, vision et valeurs</h2>
+  
+    <h3>Mission</h3>
+    <p>
+      RTL Belgium a pour mission de produire et diffuser des contenus médiatiques francophones de qualité, qui informent, divertissent et reflètent les réalités de la société belge.
+      À travers ses chaînes de télévision, radios et plateformes digitales, l’entreprise s’engage à répondre aux attentes d’un public large et diversifié, tout en respectant les principes fondamentaux du journalisme.
+    </p>
+  
+    <h3>Vision</h3>
+    <p>
+      D’ici cinq ans, RTL Belgium ambitionne de devenir le premier choix audiovisuel en Belgique francophone, en consolidant sa présence sur l’ensemble des canaux (TV, radio, digital)
+      et en proposant une expérience média personnalisée, interactive et accessible sur tous les supports.
+    </p>
+  
+    <h3>Valeurs</h3>
+    <ul>
+      <li><strong>Intégrité journalistique :</strong> garantir une information fiable, vérifiée et indépendante.</li>
+      <li><strong>Proximité avec le public :</strong> rester à l’écoute des attentes de la population belge francophone.</li>
+      <li><strong>Excellence technologique :</strong> investir dans des outils modernes pour assurer une diffusion de qualité.</li>
+      <li><strong>Responsabilité sociale :</strong> promouvoir la diversité, l’inclusion et des pratiques durables.</li>
+      <li><strong>Innovation continue :</strong> anticiper les évolutions du secteur et développer de nouveaux formats.</li>
+    </ul>
+  </section>
+  
+  
+  <section id="innovation">
+    <h2>Innovation</h2>
+    <p>
+      RTL Belgium déploie une <strong>stratégie d’innovation transversale</strong>, qui touche à la fois les produits, les processus, le marketing et l’organisation.
+      Cette approche s’inscrit dans une volonté d’<strong>adaptation continue</strong> aux mutations technologiques et aux attentes du public belge francophone.
+    </p>
+  
+    <ul>
+      <li>
+        <strong>Innovation de produit :</strong> le lancement de <em>RTLplay</em>, plateforme de streaming en ligne, marque un virage stratégique vers la consommation à la demande,
+        avec une interface moderne, une accessibilité multi-écrans et des contenus exclusifs.
+      </li>
+      <li>
+        <strong>Innovation de marketing :</strong> l’entreprise intègre l’<em>intelligence artificielle</em> pour proposer des contenus personnalisés,
+        améliorer les recommandations utilisateurs et renforcer l’engagement sur ses plateformes digitales.
+      </li>
+      <li>
+        <strong>Innovation de procédé :</strong> RTL Belgium a adopté des <em>technologies cloud</em> pour la diffusion de ses contenus,
+        assurant ainsi une plus grande flexibilité, une meilleure résilience technique et une capacité d’adaptation rapide aux pics d’audience.
+      </li>
+      <li>
+        <strong>Innovation organisationnelle :</strong> l’organisation interne a évolué vers une logique <em>agile</em>,
+        favorisant la collaboration interdisciplinaire, la réactivité et l’autonomie des équipes face aux évolutions rapides du marché.
+      </li>
+    </ul>
+  
+    <p>
+      Ces différentes formes d’innovation s’alignent sur les critères définis par l’<strong>Union européenne</strong> en matière de capacité d’innovation,
+      et positionnent RTL Belgium comme un acteur dynamique au sein de l’écosystème audiovisuel.
+    </p>
+  </section>
+  
+  
+  <section id="concurrence">
+    <h2>Concurrence – Analyse selon les 5 forces de Porter</h2>
+  
+    <p>
+      RTL Belgium évolue dans un environnement concurrentiel complexe et en mutation rapide.
+      Une analyse selon le modèle des <strong>cinq forces de Porter</strong> permet de mieux comprendre les défis stratégiques auxquels l’entreprise est confrontée :
+    </p>
+  
+    <ol>
+      <li>
+        <strong>Rivalité entre les concurrents existants :</strong><br>
+        La rivalité sectorielle est particulièrement intense. RTL Belgium doit faire face à la <em>RTBF</em>, service public fortement subventionné,
+        et à <em>TF1</em>, chaîne française bien implantée en Belgique. Ces acteurs se disputent les parts d’audience et les investissements publicitaires,
+        rendant le marché très compétitif.
+      </li>
+  
+      <li>
+        <strong>Pouvoir de négociation des clients (annonceurs) :</strong><br>
+        Les <em>annonceurs disposent d’un pouvoir de négociation élevé</em>, notamment les grandes agences médias,
+        qui peuvent comparer les offres entre chaînes et plateformes. La pression sur les tarifs publicitaires incite RTL Belgium à innover dans ses formats
+        et à offrir des solutions publicitaires personnalisées (data-driven, ciblage, etc.).
+      </li>
+  
+      <li>
+        <strong>Menace des produits de substitution :</strong><br>
+        La montée en puissance des plateformes <em>Netflix, YouTube, TikTok ou Spotify</em> constitue une menace majeure.
+        Ces services offrent des contenus à la demande, souvent sans publicité, captant l’attention et les budgets du public cible, notamment chez les jeunes.
+      </li>
+  
+      <li>
+        <strong>Menace de nouveaux entrants :</strong><br>
+        Le <em>seuil d’entrée technologique a fortement baissé</em>, permettant l’émergence d’acteurs alternatifs comme les
+        <em>influenceurs, les chaînes YouTube, les podcasts ou les médias 100 % digitaux</em>.
+        Ces nouveaux entrants fragmentent l’audience et imposent de nouveaux codes de production.
+      </li>
+  
+      <li>
+        <strong>Pouvoir de négociation des fournisseurs :</strong><br>
+        Dans le secteur audiovisuel, ce pouvoir est modéré mais réel : il peut concerner les <em>fournisseurs de contenus</em> (maisons de production)
+        ou de <em>technologies</em> (solutions cloud, diffusion, analytics). RTL Belgium limite cette dépendance en intégrant une partie de la production
+        et en diversifiant ses partenariats technologiques.
+      </li>
+    </ol>
+  
+    <p>
+      <strong>Conclusion :</strong> malgré une forte pression concurrentielle, RTL Belgium bénéficie d’un
+      <strong>positionnement avantageux</strong>, combinant une <em>présence historique en télévision</em>,
+      une <em>forte audience digitale via RTLplay</em>, et un <em>ancrage local</em> qui renforce sa légitimité auprès du public et des annonceurs.
+    </p>
+  </section>
+  
+  
+  <section id="segmentation">
+    <h2>Segmentation, ciblage, positionnement et différenciation</h2>
+  
+    <h3>Segmentation</h3>
+    <p>
+      RTL Belgium segmente son audience principalement selon deux axes :
+    </p>
+    <ul>
+      <li><strong>Démographique</strong> : en s’adressant à la fois aux <em>jeunes adultes</em>, aux <em>familles</em> et aux <em>actifs</em>, avec des offres adaptées à chaque tranche d’âge.</li>
+      <li><strong>Comportemental</strong> : en tenant compte des <em>habitudes de consommation médiatique</em> : télévision linéaire traditionnelle, plateformes de streaming (RTLplay), radio ou contenus mobiles.</li>
+    </ul>
+  
+    <h3>Ciblage</h3>
+    <p>
+      L’entreprise cible prioritairement les <strong>consommateurs francophones belges actifs sur le digital</strong>, à la recherche de contenus à la fois accessibles, fiables et proches de leur quotidien.
+      Ce public est friand d’actualités, de divertissement local et de formats courts, ce qui justifie l’accent mis sur les plateformes numériques.
+    </p>
+  
+    <h3>Positionnement</h3>
+    <p>
+      RTL Belgium se positionne comme un <strong>média généraliste, fiable et ancré localement</strong>, combinant le professionnalisme journalistique à une offre diversifiée de divertissement.
+      Elle entend être perçue comme une marque de confiance, accessible sur tous les supports, et capable d’accompagner les évolutions des usages médias.
+    </p>
+  
+    <h3>Différenciation</h3>
+    <p>La stratégie de différenciation repose sur plusieurs leviers clés :</p>
+    <ul>
+      <li><strong>Contenus produits localement</strong>, ancrés dans la réalité belge francophone.</li>
+      <li><strong>Animateurs et journalistes reconnus</strong>, qui incarnent la proximité avec le public.</li>
+      <li><strong>Intégration multisupport</strong> fluide (TV, radio, web, application mobile), assurant une continuité de l’expérience utilisateur.</li>
+      <li><strong>Innovation technologique</strong> soutenue (recommandations personnalisées, formats interactifs, analyse des données d’audience).</li>
+    </ul>
+  </section>
+  
+  <section id="prix">
+    <h2>Politique de prix</h2>
+  
+    <p>
+      Le <strong>modèle économique de RTL Belgium</strong> repose principalement sur une <strong>stratégie publicitaire multicanal</strong>,
+      combinant les revenus issus de la <em>télévision linéaire</em> et ceux des <em>plateformes digitales</em>.
+      À cela s’ajoutent des <strong>partenariats commerciaux</strong> ponctuels (sponsoring, co-productions, contenus de marque).
+    </p>
+  
+    <p>
+      Les tarifs publicitaires sont établis selon des <strong>modèles de tarification reconnus dans le secteur</strong> :
+    </p>
+    <ul>
+      <li>En télévision, les prix sont indexés sur l’<strong>audience mesurée</strong> (GRP, coût pour mille - <abbr title="Cost Per Mille">CPM</abbr>).</li>
+      <li>En digital, les campagnes peuvent être facturées au <strong>CPM (coût pour mille impressions)</strong> ou au <strong>CPC (coût par clic)</strong>, selon les objectifs des annonceurs (visibilité, engagement, conversion).</li>
+    </ul>
+  
+    <p>
+      RTL Belgium propose une <strong>offre modulable et différenciée</strong>, adaptée aux besoins variés des annonceurs :
+    </p>
+    <ul>
+      <li><strong>Formats classiques</strong> : spots TV, bannières, pre-rolls</li>
+      <li><strong>Formats natifs</strong> : native ads, contenus sponsorisés intégrés dans les flux</li>
+      <li><strong>Opérations spéciales</strong> : partenariats événementiels, placement de produit, sponsoring d’émissions</li>
+    </ul>
+  
+    <p>
+      Cette <strong>souplesse tarifaire et formatique</strong> permet à RTL Belgium de toucher aussi bien les grandes marques que les annonceurs locaux,
+      tout en optimisant ses revenus publicitaires selon les canaux et les audiences ciblées.
+    </p>
+  </section>
+  
+  
+  <section id="diagnostic">
+    <h2>Diagnostic financier</h2>
+  
+    <p>
+      RTL Belgium présente une <strong>situation financière globalement saine</strong>, fondée sur des revenus solides,
+      une gestion maîtrisée des charges et une capacité d’adaptation aux mutations du marché.
+    </p>
+  
+    <ul>
+      <li>
+        <strong>Rentabilité :</strong><br>
+        Le chiffre d’affaires déclaré en 2024 dépasse les <strong>225 millions d’euros</strong>, ce qui reflète une performance commerciale stable.
+        Malgré un environnement médiatique concurrentiel, l’entreprise parvient à dégager une <em>marge opérationnelle positive</em>,
+        notamment grâce à l’optimisation de ses revenus publicitaires et à la diversification de ses supports (TV, radio, digital).
+      </li>
+  
+      <li>
+        <strong>Structure de coûts :</strong><br>
+        RTL Belgium gère une structure de coûts équilibrée, avec un effectif d’environ <strong>447 ETP</strong>.
+        La maîtrise des charges fixes (infrastructures, personnel) et l’optimisation des dépenses technologiques (cloud, automatisation)
+        contribuent à maintenir un bon niveau de compétitivité.
+      </li>
+  
+      <li>
+        <strong>Solvabilité et endettement :</strong><br>
+        L’entreprise bénéficie d’un <strong>soutien actionnarial solide</strong> (DPG Media et Rossel), ce qui limite son exposition à l’endettement externe.
+        Aucune difficulté de trésorerie notable n’est observée, ce qui laisse supposer une <em>solvabilité correcte</em> et une capacité à faire face à ses engagements à court terme.
+      </li>
+  
+      <li>
+        <strong>Capacité d’investissement :</strong><br>
+        RTL Belgium continue d’investir dans les <em>technologies numériques</em>, l’<em>innovation éditoriale</em> et les <em>infrastructures de diffusion</em>,
+        tout en maintenant une rigueur budgétaire. Ces choix montrent une volonté de se projeter durablement dans un marché en pleine transformation.
+      </li>
+    </ul>
+  
+    <p>
+      <strong>Conclusion :</strong> RTL Belgium affiche une <strong>bonne santé financière</strong>,
+      marquée par un équilibre entre performance économique, rigueur de gestion et investissements stratégiques.
+      Cela lui permet de conserver sa place de leader tout en s’adaptant aux défis du numérique.
+    </p>
+  </section>
+  
+  <section id="swot">
+    <h2>Analyse SWOT</h2>
+  
+    <h3>Forces</h3>
+    <p>
+      RTL Belgium bénéficie de plusieurs atouts majeurs. Sa <strong>marque historique et bien implantée</strong> en Belgique francophone lui confère une forte notoriété et une légitimité auprès du public.
+      Elle dispose d’un <strong>écosystème multiplateforme performant</strong> (TV, radio, digital), lui permettant de toucher un large éventail de consommateurs.
+      La <strong>production locale de contenus</strong>, adaptée aux réalités culturelles belges, renforce sa proximité avec l’audience.
+      Enfin, sa capacité d’<strong>innovation continue</strong> (technologies, formats, IA) lui permet de rester compétitive dans un marché en mutation.
+    </p>
+  
+    <h3>Faiblesses</h3>
+    <p>
+      L’un des points de fragilité de RTL Belgium réside dans sa <strong>dépendance aux revenus publicitaires</strong>,
+      exposés aux cycles économiques et à la pression tarifaire. De plus, l’entreprise doit faire face au <strong>vieillissement de son audience traditionnelle</strong>,
+      notamment sur les canaux TV linéaires, ce qui complique le renouvellement de sa base d’audience.
+    </p>
+  
+    <h3>Opportunités</h3>
+    <p>
+      Le développement du <strong>streaming vidéo à la demande</strong> représente un levier de croissance important, notamment via la plateforme RTLplay.
+      La <strong>valorisation des données d’audience</strong> (via le ciblage publicitaire ou la personnalisation des contenus) ouvre de nouvelles perspectives de monétisation.
+      Par ailleurs, la possibilité de nouer des <strong>alliances stratégiques</strong> avec d’autres groupes médias ou acteurs technologiques pourrait renforcer sa position sur le marché.
+    </p>
+  
+    <h3>Menaces</h3>
+    <p>
+      RTL Belgium doit faire face à la concurrence croissante des <strong>plateformes mondiales</strong> telles que Netflix, YouTube ou TikTok,
+      qui captent une part croissante de l’attention et des revenus publicitaires.
+      L’<strong>évolution rapide des technologies numériques</strong> exige des investissements constants.
+      Enfin, la <strong>fragmentation des publics</strong>, avec des usages de plus en plus éclatés selon les générations et les supports, rend la fidélisation plus complexe.
+    </p>
+  </section>
+  <script>
+    // Animation au scroll
+    const sections = document.querySelectorAll('section');
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) section.classList.add('reveal');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', () => {
+      // Fix pour éviter de scroller automatiquement à une ancre au rechargement
+      if (window.location.hash) {
+        window.scrollTo({ top: 0, behavior: "auto" });
+        history.replaceState(null, null, ' ');
+      }
+      revealOnScroll();
+    });
+  </script>
+  <footer style="text-align: center; padding: 2rem; color: #888; font-size: 0.9rem;">
+    Réalisé par Dilan Uludag – HE2B ISIB © 2025
+  </footer>
+  
 
 </body>
 </html>
