@@ -20,23 +20,59 @@
   transform: scale(1.02);
 }
 
-/* Lightbox full screen */
 #lightbox {
   display: none;
   position: fixed;
   z-index: 9999;
   top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  width: 100vw; height: 100vh;
+  backdrop-filter: blur(12px);
+  background: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
+  transition: all 0.4s ease;
+}
+
+#lightbox.show {
+  display: flex;
 }
 
 #lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 12px;
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 14px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.7);
+  animation: zoomIn 0.4s ease;
 }
+
+#lightbox .close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  background: rgba(0,0,0,0.4);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+#lightbox .close-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 
     :root {
       --primary: #F59300;
@@ -501,9 +537,11 @@
     <img src="business_canvas.png" alt="Business Model Canvas RTL Belgium" class="bmc-img" onclick="openLightbox(this)">
   </p>
     <!-- Lightbox -->
-<div id="lightbox" onclick="closeLightbox()">
-  <img src="" alt="Agrandissement Business Model Canvas">
+<div id="lightbox">
+  <span class="close-btn" onclick="closeLightbox()">✖</span>
+  <img src="" alt="Business Model Canvas RTL Belgium">
 </div>
+
 
 </section>
   <script>
@@ -535,14 +573,22 @@
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('img');
     lightboxImg.src = img.src;
-    lightbox.style.display = 'flex';
+    lightbox.classList.add('show');
   }
 
   function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
-    lightbox.style.display = 'none';
+    lightbox.classList.remove('show');
   }
+
+  // ESC pour fermer
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeLightbox();
+    }
+  });
 </script>
+
 
 </body>
 </html>
